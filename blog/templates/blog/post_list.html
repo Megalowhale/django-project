@@ -5,19 +5,12 @@
   <body>
     <div>
       <h1><a href="">Megalowhale's Blog</a></h1>
-      <h2>A blog about random tech stuff</h2></center>
-    </div>
-
-    <div>
-      <h2><a href="">Welcome!</a></h2>
-      <p>Hi there!</p>
-      <p>It works!</p>
-    </div>
-
-    <div>
-      <p>published: 12.15.2014, 14:00</p>
-      <h2><a href="">Second post</a><h2>
-      <p>Not much to post here today, just testing.</p>
+      <h2>Blog about tech and tech-like stuff.</h2></center>
+      {% for post in posts %}
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaks }}</p>
+      {% endfor %}
     </div>
   </body>
 </html
