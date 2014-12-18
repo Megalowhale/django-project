@@ -1,33 +1,13 @@
-{% load staticfiles %}
-<html>
-  <head>
-      <title>Megalowhale's Blog</title>
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-      <link href="//fonts.googleapis.com/css?family=Allura&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-      <div class="page-header">
-          <h1><a href="">Megalowhale's Blog</a></h1>
-          <h2>Blog about tech and tech-like stuff.</h2></center>
-      </div>
+{% extends 'blog/base.html'  %}
 
-      <div class="content container">
-          <div class="row">
-              <div class="col-md-8">
-                  {% for post in posts %}
-                  <div class="post">
-                      <div class="date">
-                          {{ post.published_date }}
-                      </div>
-                      <h1><a href="">{{ post.title }}</a></h1>
-                      <p>{{ post.text|linebreaks }}</p>
-                  </div>
-                  {% endfor %}
-              </div>
-          </div>
-      </div>
-  </body>
-</html
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
